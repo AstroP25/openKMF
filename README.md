@@ -1,14 +1,13 @@
-# KFDweb
+# openKMF
 
-Open Source browser-based GUI for [KFDtool](https://github.com/KFDtool/KFDtool)
-Compliant with P25 standards (TIA-102.AACD-A)
+Open Source browser-based GUI for utilize as a Tactical KMF (TKMF)
+Compliant with P25 standards (TIA-102.AACD-A). Based off of KFDweb.
 
-**[Use KFDweb here now](https://4dkfire.com/KFDweb)**
-
+This application is designed to run within an OCI compliant container with support for HTTPS via Caddy. Some functions may not transfer properly between KFDweb and openKMF due to the isolation of the webapp into a container. This is by design.
 
 Features
 ----------------
-KFDweb is designed to interface with the KFDtool and [KFDshield](https://store.omahacomms.com/product/kfdshield/) hardware adapters (TWI/3WI/Three Wire Interface).
+openKMF is designed to provide core key management functions with an interface with the KFDtool and [KFDshield](https://store.omahacomms.com/product/kfdshield/) hardware adapters (TWI/3WI/Three Wire Interface) for sharing keys to a supported Motorola Solutions KVL, export/import KFDtool style key containters and export L3-Harris DKF files while adding some additional security features to better align with public safety needs while retaining as much keyfill device (KFD) interoperability between manufactures as possible.
 
 **Key Fill Device (KFD)**
 
@@ -42,8 +41,8 @@ Keys and groups of keys can be saved to an AES-256 encrypted key container file,
 
 Incompatibility
 
-* Mobile Radio (MR) Emulator is not supported at this time
-* Data Link Independent (DLI) functions are not supported (IP/UDP)
+* Mobile Radio (MR) Emulator is not supported at this time and will not be supported for the purposes of this project.
+* Data Link Independent (DLI) functions are not supported (IP/UDP).
 
 
 Hardware Compatibility
@@ -64,12 +63,11 @@ Browser and OS Compatibility
 
 Documentation
 ----------------
-A video showing basic features is [available for viewing here](https://github.com/grover556/KFDweb/raw/main/KFDweb_demo_final.mp4)
-
+To be provided at a later date.
 
 License/Legal
 ----------------
-KFDweb software is distributed under the MIT License (see [LICENSE.txt](https://github.com/grover556/KFDweb/blob/main/LICENSE)).
+openKMF is based on the project KFDweb and software is distributed under the MIT License (see [LICENSE.txt](https://github.com/grover556/KFDweb/blob/main/LICENSE)).
 
 All product names, trademarks, registered trademarks, logos, and brands are property of their respective owners.
 All company, product, and service names used are for identification purposes only. Use of these names, trademarks, logos, and brands does not imply endorsement.
