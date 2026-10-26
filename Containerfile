@@ -1,11 +1,10 @@
-FROM docker.io/redhat/ubi10-minimal
+FROM docker.io/alpine:3.24
 
-RUN microdnf update -y && \
-microdnf install -y caddy && \
-microdnf clean
+RUN apk update --no-cache && \
+apk add caddy
 
 ADD Caddyfile /opt/
-ADD openkmf /opt/
+ADD openkmf /opt/openkmf/
 
 EXPOSE 443/tcp
 
