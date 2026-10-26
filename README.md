@@ -1,5 +1,9 @@
 # KFDweb
 
+# This is a reference backup of KFDweb.
+
+Chances will not be made to this branch other than the updating of nessecary Readme.
+
 Open Source browser-based GUI for [KFDtool](https://github.com/KFDtool/KFDtool)
 Compliant with P25 standards (TIA-102.AACD-A)
 
