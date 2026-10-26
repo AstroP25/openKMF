@@ -4,9 +4,11 @@ RUN microdnf update -y && \
 microdnf install -y caddy && \
 microdnf clean
 
-ADD caddy.cfg /etc/caddy/
-ADD openkmf/ /var/www/localhost/
+ADD Caddyfile /opt/
+ADD openkmf /opt/
 
-WORKDIR /var/www/localhost/
+EXPOSE 443/tcp
 
-CMD [caddy]
+WORKDIR /opt
+
+CMD ["caddy","start"]
