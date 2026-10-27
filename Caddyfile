@@ -1,5 +1,5 @@
 localhost {
-    root * /opt/kfdweb
+    root * /opt/openkmf
     encode gzip zstd
     file_server browse
 }
