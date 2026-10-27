@@ -6,12 +6,20 @@
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
-		<title>openKMF</title>
+		<title>KFDweb</title>
 		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="stylesheet" href="css/openKMF.main.css" />
+		<link rel="stylesheet" href="css/kfdweb.main.css" />
+		<style>
+		/* Static build: hide the Manage Radio navigation and pages, retaining their DOM
+		   so upstream event initialization remains compatible. */
+		#menu_viewKeyInfo, #menu_viewKeysetInfo, #menu_viewRsiItems, #menu_viewKmfInfo { display:none !important; }
+		#sidebarMenu h6:nth-of-type(2) { display:none !important; }
+		#viewKeyInfo, #viewKeysetInfo, #viewRsiItems, #viewKmfInfo { display:none !important; }
+		</style>
+
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.min.css" integrity="sha384-TU6D2CDu2vbHc1tsRJqMJgyS8b8SbQY91GSLcBS/F8y3c7Odv+tTve+3pqNRSmDc" crossorigin="anonymous">
-		<!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 
 		<script src="js/webusb-cdcacm.js"></script>
 		<script src="js/webusb-ftdi.js"></script>
@@ -97,8 +105,7 @@
 
 		<script src="js/utilities.js"></script>
 		
-		<!-- <script src="js/pako.min.js"></script> -->
-		<!-- <script src="js/serial-1.0.13.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js" crossorigin="anonymous"></script>
 		<script src="js/Version.js"></script>
 	</head>
 	<body>
@@ -107,9 +114,9 @@
 				<div class="container-fluid">
 					<a class="navbar-brand" href="javascript:void(0)">
 						<img src="favicon.ico" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
-						openKMF
+						KFDweb
 					</a>
-					<span hidden class="navbar-brand mb-0 h1">openKMF</span>
+					<span hidden class="navbar-brand mb-0 h1">KFDweb</span>
 					<div hidden class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" id="darkModeSwitch">
 						<label class="form-check-label" for="darkModeSwitch"><i hidden id="darkModeSwitch_sun" class="bi bi-sun"></i><i id="darkModeSwitch_moonold" class="bi bi-moon"></i></label>
@@ -192,9 +199,9 @@
 					<div id="homeDiv" class="menu_divs">
 						<h3>Home</h3>
 						<h5 hidden style="color:red;">This PRE-RELEASE software is still in development and should not be used for production</h5>
-						<h5>Open Source P25 Key Management Facility GUI, based on the <a href="https://github.com/KFDtool/KFDtool" target="_blank">KFDtool</a> project</h5>
+						<h5>Open Source P25 Key Fill Device GUI, based on the <a href="https://github.com/KFDtool/KFDtool" target="_blank">KFDtool</a> project</h5>
 						<p>Currently compatible with most functionality of the KFDtool and compatible devices. More information can be found at <a href="http://www.kfdtool.com" target="_blank">http://www.kfdtool.com</a>.</p>
-						<p><a href="https://kfdtool.com/store" target="_blank">KFDtool</a>, <a href="https://store.omahacommunicationsys.com" target="_blank">KFDshield</a> and <a href="https://store.w3axl.com/products/kfdmicro-compact-keyloader" target="_blank">KFDMicro</a> hardware devices are fully supported by openKMF</p>
+						<p><a href="https://kfdtool.com/store" target="_blank">KFDtool</a>, <a href="https://store.omahacommunicationsys.com" target="_blank">KFDshield</a> and <a href="https://store.w3axl.com/products/kfdmicro-compact-keyloader" target="_blank">KFDMicro</a> hardware devices are fully supported by KFDweb</p>
 						<p>
 							<h3 id="secureContextStatus"></h3>
 							<span id="secureContextDetails"></span>
@@ -358,7 +365,7 @@
 								<div id="accordionHomeCollapseVideo" class="accordion-collapse collapse" aria-labelledby="accordionHomeVideoHeader" aria-expanded="false" data-bs-parent="#accordionHome">
 									<div class="accordion-body">
 										<video controls width="100%">
-											<source src="openKMF_demo.mp4" type="video/mp4">
+											<source src="KFDweb_demo_final.mp4" type="video/mp4">
 										</video>
 									</div>
 								</div>
@@ -605,10 +612,10 @@
 							<div id="loadKeySingle_keyFeedback" class="invalid-feedback">Use only numbers and letters A-F</div>
 						</div>
 						
-						<!-- <div class="form-check form-switch">
+						<div class="form-check form-switch">
 							<label class="form-check-label" for="loadKeySingle_toggleKeyVis">Show Key</label>
 							<input class="form-check-input" type="checkbox" role="switch" id="loadKeySingle_toggleKeyVis">
-						</div> -->
+						</div>
 						<p></p>
 						<button id="buttonGenerateRandomKey" type="button" class="btn btn-primary">Generate Key</button>
 						<p></p>
@@ -786,9 +793,7 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 								</div>
 								<div class="modal-body">
-									<p>Portions of this openKMF software may utilize the following copyrighted material, the use of which is hereby acknowledged.</p>
-									<hr/>
-									<h5 class="ui-bar ui-bar-a" target="_blank">Copyright(c) 2026 Colin Zapalac</h5><div class="ui-body"><a href="https://github.com/AstroP25/openKMF/blob/main/LICENSE">openKMF</a><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br><br>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></p></div>
+									<p>Portions of this KFDweb software may utilize the following copyrighted material, the use of which is hereby acknowledged.</p>
 									<hr/>
 									<h5 class="ui-bar ui-bar-a" target="_blank">Copyright (c) 2021-2022 Collin Grove</h5><div class="ui-body"><a href="https://github.com/grover556/KFDweb/blob/main/LICENSE">KFDweb</a><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br><br>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></p></div>
 									<hr/>
@@ -1009,6 +1014,6 @@
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-		<script src="js/openKMF.main.js"></script>
+		<script src="js/kfdweb.main.js"></script>
 	</body>
 </html>
