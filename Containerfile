@@ -1,16 +1,10 @@
 FROM docker.io/alpine:3.24
 
-COPY Caddyfile /opt/
-COPY openkmf/. /opt/openkmf/
-COPY kfdweb/. /opt/kfdweb/
-
 RUN apk update --no-cache && \
-apk add caddy && \
-chmod -R 755 /opt/openkmf && \
-chmod -R 755 /opt/kfdweb
+apk add lighttpd
 
-EXPOSE 443/tcp
+COPY openkmf/. /var/www/localhost/htdocs
+EXPOSE 80
 
-WORKDIR /opt
+CMD ["lighttpd","-D","-f","/etc/lighttpd/lighttpd.conf"]
 
-CMD ["caddy","run"]

@@ -1,0 +1,15 @@
+FROM docker.io/alpine:3.24
+
+COPY Caddyfile /opt/
+COPY openkmf/. /opt/openkmf/
+
+RUN apk update --no-cache && \
+apk add caddy && \
+chmod -R 755 /opt/openkmf
+
+EXPOSE 443/tcp
+EXPOSE 80/tcp
+
+WORKDIR /opt
+
+CMD ["caddy","run"]

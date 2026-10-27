@@ -1,0 +1,4 @@
+FROM docker.io/nginx:alpine3.24
+
+COPY openkmf/. /usr/share/nginx/html
+
