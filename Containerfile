@@ -1,13 +1,16 @@
 FROM docker.io/alpine:3.24
 
-RUN apk update --no-cache && \
-apk add caddy
+COPY Caddyfile /opt/
+COPY openkmf/. /opt/openkmf/
+COPY kfdweb/. /opt/kfdweb/
 
-ADD Caddyfile /opt/
-ADD openkmf /opt/openkmf/
+RUN apk update --no-cache && \
+apk add caddy && \
+chmod -R 755 /opt/openkmf && \
+chmod -R 755 /opt/kfdweb
 
 EXPOSE 443/tcp
 
 WORKDIR /opt
 
-CMD ["caddy","start"]
+CMD ["caddy","run"]
