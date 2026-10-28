@@ -62,6 +62,10 @@ Browser and OS Compatibility
 * openKMF software will run on any [secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) HTTP server, including HTTPS and localhost deployments
 
 
+Project Direction and Interoperability
+----------------
+openKMF is being developed as a Tactical KMF focused on encrypted container management and interoperability with field key-management interfaces. See [the interoperability roadmap](docs/INTEROPERABILITY_AND_ROADMAP.md) and [KFDpro/TKMD reference notes](docs/TKMD_AND_KFDPRO_REFERENCE.md) for the current scope, public references, assumptions, and proposed development order.
+
 Documentation
 ----------------
 A video showing basic features is [available for viewing here](https://github.com/grover556/KFDweb/raw/main/KFDweb_demo_final.mp4)
