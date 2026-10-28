@@ -40,6 +40,7 @@
 		<script src="js/Adaptor/Protocol/Serial/SerialProtocol.js"></script>
 		
 		<script src="js/Container/KeyContainer.js"></script>
+		<script src="js/Container/DkfExport.js"></script>
 		
 		<script src="js/P25/Constant/AlgorithmId.js"></script>
 
@@ -184,6 +185,9 @@
 								</li>
 								<li id="menu_exportKeyContainer" class="nav-item">
 									<a class="nav-link" href="javascript:void(0)"><i class="bi bi-floppy"></i>Export Key Container</a>
+								</li>
+								<li id="menu_exportDkf" class="nav-item">
+									<a class="nav-link" href="javascript:void(0)"><i class="bi bi-file-earmark-lock"></i>Export Container to Distributed Key File</a>
 								</li>
 								<li id="menu_resetKeyContainer" class="nav-item">
 									<a class="nav-link" href="javascript:void(0)"><i class="bi bi-trash"></i>Reset Key Container</a>
@@ -757,6 +761,19 @@
 						<input type="text" class="form-control" id="exportKeyContainer_filename">
 						<p></p>
 						<button id="createEkc" type="button" class="btn btn-primary">Save Key Container</button>
+					</div>
+					<div hidden id="exportDkf" class="menu_divs">
+						<h3>Export Container to Distributed Key File</h3>
+						<p>Export an encrypted .dkf file using the DKF container format implemented by KFDtool 1.8.8.</p>
+						<h6>Current container: <span class="keyContainerFileName"></span></h6>
+						<label for="exportDkf_password" class="col-form-label">DKF password:</label>
+						<input type="password" class="form-control" id="exportDkf_password" autocomplete="new-password">
+						<label for="exportDkf_passwordVerify" class="col-form-label">Verify password:</label>
+						<input type="password" class="form-control" id="exportDkf_passwordVerify" autocomplete="new-password">
+						<label for="exportDkf_filename" class="col-form-label">File name:</label>
+						<input type="text" class="form-control" id="exportDkf_filename" placeholder="key-container">
+						<p class="mt-2">Only DES (algorithm 0x81) and AES (algorithm 0x84) TEK keys are exported. KEKs and unsupported algorithms are skipped, matching KFDtool 1.8.8.</p>
+						<button id="createDkf" type="button" class="btn btn-primary">Export Container to Distributed Key File</button>
 					</div>
 					<div hidden id="resetKeyContainer" class="menu_divs">
 						<h3>Reset Key Container</h3>
