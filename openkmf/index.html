@@ -15,6 +15,7 @@
 		#menu_viewKeyInfo, #menu_viewKeysetInfo, #menu_viewRsiItems, #menu_viewKmfInfo { display:none !important; }
 		#sidebarMenu h6:nth-of-type(2) { display:none !important; }
 		#viewKeyInfo, #viewKeysetInfo, #viewRsiItems, #viewKmfInfo { display:none !important; }
+		#loadKeySingle_keyVisibilityToggle { display:none !important; }
 		</style>
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
@@ -201,7 +202,7 @@
 						<h5 hidden style="color:red;">This PRE-RELEASE software is still in development and should not be used for production</h5>
 						<h5>Open Source P25 Key Fill Device GUI, based on the <a href="https://github.com/KFDtool/KFDtool" target="_blank">KFDtool</a> project</h5>
 						<p>Currently compatible with most functionality of the KFDtool and compatible devices. More information can be found at <a href="http://www.kfdtool.com" target="_blank">http://www.kfdtool.com</a>.</p>
-						<p><a href="https://kfdtool.com/store" target="_blank">KFDtool</a>, <a href="https://store.omahacommunicationsys.com" target="_blank">KFDshield</a> and <a href="https://store.w3axl.com/products/kfdmicro-compact-keyloader" target="_blank">KFDMicro</a> hardware devices are fully supported by KFDweb</p>
+						<p><a href="https://kfdtool.com/store" target="_blank">KFDtool</a>, <a href="https://store.omahacommunicationsys.com" target="_blank">KFDshield</a> and <a href="https://store.w3axl.com/products/kfdmicro-compact-keyloader" target="_blank">KFDMicro</a> hardware devices are fully supported by openKMF</p>
 						<p>
 							<h3 id="secureContextStatus"></h3>
 							<span id="secureContextDetails"></span>
@@ -612,7 +613,7 @@
 							<div id="loadKeySingle_keyFeedback" class="invalid-feedback">Use only numbers and letters A-F</div>
 						</div>
 						
-						<div class="form-check form-switch">
+						<div id="loadKeySingle_keyVisibilityToggle" class="form-check form-switch">
 							<label class="form-check-label" for="loadKeySingle_toggleKeyVis">Show Key</label>
 							<input class="form-check-input" type="checkbox" role="switch" id="loadKeySingle_toggleKeyVis">
 						</div>
@@ -793,7 +794,7 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 								</div>
 								<div class="modal-body">
-									<p>Portions of this KFDweb software may utilize the following copyrighted material, the use of which is hereby acknowledged.</p>
+									<p>Portions of this openKMF application may utilize the following copyrighted material, the use of which is hereby acknowledged.</p>
 									<hr/>
 									<h5 class="ui-bar ui-bar-a" target="_blank">Copyright (c) 2021-2022 Collin Grove</h5><div class="ui-body"><a href="https://github.com/grover556/KFDweb/blob/main/LICENSE">KFDweb</a><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br><br>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></p></div>
 									<hr/>

@@ -1,6 +1,6 @@
-# KFDweb static project build (Manage Radio removed)
+# openKMF static project build (Manage Radio removed)
 
-This package uses the KFDweb source tree supplied as the project source file. The original JavaScript implementation and CSS are retained; the Manage Radio navigation and its pages are hidden from the interface. Key-container workflows, key creation, key loading, and device connection pages remain available as in the source project.
+This package uses the openKMF source tree supplied as the project source file. The original JavaScript implementation and CSS are retained; the Manage Radio navigation and its pages are hidden from the interface. Key-container workflows, key creation, key loading, and device connection pages remain available as in the source project. The “Show Key” visibility toggle is hidden.
 
 ## Run
 
@@ -13,6 +13,7 @@ Bootstrap, Bootstrap Icons, jQuery, and pako are referenced from their public CD
 ## Notes
 
 - Manage Radio UI (radio key/keyset/RSI/KMF inspection and management) is hidden.
+- The “Show Key” toggle is hidden; the key field remains masked as a password field.
 - Key Container management is retained; its menu entry named “Manage Keys” is for the container, not the radio.
 - Actual device/key-fill operations require compatible hardware, a supported browser, and secure-context hosting. Test in a non-production environment first.
 - This source retains the upstream MIT license in `LICENSE`. Third-party components retain their respective licenses.
